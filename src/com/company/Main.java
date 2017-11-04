@@ -12,7 +12,11 @@ public class Main {
 
         int numStudents;
         double tempGpa;
+        double percentHonors;
+        String valedictorianName;
         String tempName;
+
+        HighSchoolClass highSchool;
 
         System.out.println("How many students are in the class?");
         numStudents = intInput.nextInt();
@@ -29,6 +33,13 @@ public class Main {
             classStudents[i] = new Student(tempName,tempGpa);
         }
 
-        
+        highSchool = new HighSchoolClass(classStudents);
+
+        valedictorianName = (highSchool.getValedictorian()).getName();
+        System.out.println("The class' valedictorian is "+valedictorianName+".");
+
+        percentHonors = highSchool.getHonorsPercentage();
+        System.out.println(Math.round(percentHonors*100.0)/100.0 //Rounds percentage to two decimal places
+                +"% of the class are in the honors program.");
     }
 }
